@@ -2,7 +2,6 @@ from gpiozero import PWMLED
 import ADS1x15
 import time
 import math
-import 
 
 # Indico el pin a usar para el I2C y el registro
 ADS = ADS1x15.ADS1115(1,0x48)
@@ -39,9 +38,9 @@ while True:
     # Cálculo de la resistencia del termistor
     rt = (r * VoltajeTerm) / (vcc - VoltajeTerm)
 
-    # Conversión a temperatura 
+    # Conversión temperatura 
     t = beta / (math.log(rt / r) + (beta / t0))
-    # Conversión a grados Celsius
+    # Conversión grados Celsius
     t = t - 273.15  
 
     # Reduzco la escala de voltaje del potenciometro para trabajar solo entre los 0 y 30 °C
